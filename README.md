@@ -60,12 +60,6 @@ B) Run the Web App (Streamlit Demo)
    - Confidence score
    - Explainability heatmap output
 
-C) (Optional) Run Inference from CLI
-python -m src.models.predict --image_path path/to/image.jpg --output_dir results/
-
-D) (Optional) Train Model
-python -m src.models.train --config configs/train.yaml
-
 6) Output
 ---------
 - Predictions and heatmaps are saved in:
