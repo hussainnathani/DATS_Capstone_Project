@@ -1,0 +1,20 @@
+# Core ML (Colab already has these — skip on Colab)
+torch
+torchvision
+numpy
+Pillow
+scikit-learn
+matplotlib
+pandas
+tqdm
+
+# HuggingFace
+transformers
+datasets
+
+# XAI
+captum
+
+# Web App (local only)
+streamlit
+seaborn
