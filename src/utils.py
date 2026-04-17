@@ -25,20 +25,24 @@ NUM_WORKERS = 4
 
 # Training defaults
 LEARNING_RATE = 2e-5
-NUM_EPOCHS = 10
-WEIGHT_DECAY = 0.01
+NUM_EPOCHS = 15
+WEIGHT_DECAY = 0.05   # L2 regularization (increased from 0.01)
+L1_LAMBDA = 1e-5       # L1 regularization strength
 WARMUP_RATIO = 0.1
 
 # Multi-task loss weights
-ALPHA = 1.0  # Weight for Head A (binary detection)
+ALPHA = 2.0  # Weight for Head A (binary detection) — prioritize fixing Real detection
 BETA = 1.0   # Weight for Head B (generator attribution)
+
+# Class weights for Head A (Real is 5x underrepresented)
+CLASS_WEIGHTS_A = [8.0, 1.0]  # [Real, AI-Generated] — push harder on Real recall
 
 # Number of classes
 NUM_CLASSES_A = 2  # Real vs AI-Generated
 NUM_CLASSES_B = 6  # Real, SD21, SDXL, SD3, DALLE3, Midjourney
 
 # Freeze strategy: number of ViT encoder layers to FREEZE (out of 12)
-NUM_FROZEN_LAYERS = 8
+NUM_FROZEN_LAYERS = 6  # Unfreeze 6 layers (was 8) for better generator fingerprints
 
 # ──────────────────────────────────────────────
 # Label Mappings
